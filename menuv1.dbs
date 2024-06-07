@@ -24,6 +24,12 @@
 		</table>
 		<table name="TABLE3" >
 			<column name="D4" type="float" jt="6" />
+			<index name="UNQ_TABLE3_D4" unique="UNIQUE_KEY" >
+				<column name="D4" />
+			</index>
+			<fk name="FK_TABLE3_TEST" to_schema="TASTY_BYTES_SAMPLE_DATA.RAW_POS" to_table="TEST" >
+				<fk_column name="D4" pk="COL1" />
+			</fk>
 		</table>
 		<table name="TEST" >
 			<comment><![CDATA[this is test table for git integration]]></comment>
@@ -34,6 +40,9 @@
 				<comment><![CDATA[demo col]]></comment>
 			</column>
 			<column name="NEWCOL" type="float" jt="6" />
+			<index name="UNQ_TEST_COL1" unique="UNIQUE_KEY" >
+				<column name="COL1" />
+			</index>
 			<options><![CDATA[
 STAGE_FILE_FORMAT=( TYPE=CSV )]]></options>
 		</table>
@@ -95,15 +104,15 @@ FROM
 					<form_script type="DataSource" language="SQL" >
 						<var name="MENU_ID" type="3" />
 						<var name="MENU_TYPE_ID" type="4" />
-						<var name="MENU_TYPE" />
-						<var name="TRUCK_BRAND_NAME" />
+						<var name="MENU_TYPE" type="-1" />
+						<var name="TRUCK_BRAND_NAME" type="-1" />
 						<var name="MENU_ITEM_ID" type="4" />
-						<var name="MENU_ITEM_NAME" />
-						<var name="ITEM_CATEGORY" />
-						<var name="ITEM_SUBCATEGORY" />
+						<var name="MENU_ITEM_NAME" type="-1" />
+						<var name="ITEM_CATEGORY" type="-1" />
+						<var name="ITEM_SUBCATEGORY" type="-1" />
 						<var name="COST_OF_GOODS_USD" type="3" />
 						<var name="SALE_PRICE_USD" type="3" />
-						<var name="MENU_ITEM_HEALTH_METRICS_OBJ" />
+						<var name="MENU_ITEM_HEALTH_METRICS_OBJ" type="-1" />
 						<script ><![CDATA[SELECT * FROM TASTY_BYTES_SAMPLE_DATA.RAW_POS.MENU]]></script>
 					</form_script>
 					<param name="item" value="MENU_TYPE" />
@@ -116,28 +125,28 @@ FROM
 					<form_script type="DataSource" language="SQL" >
 						<var name="MENU_ID" type="3" />
 						<var name="MENU_TYPE_ID" type="4" />
-						<var name="MENU_TYPE" />
-						<var name="TRUCK_BRAND_NAME" />
+						<var name="MENU_TYPE" type="-1" />
+						<var name="TRUCK_BRAND_NAME" type="-1" />
 						<var name="MENU_ITEM_ID" type="4" />
-						<var name="MENU_ITEM_NAME" />
-						<var name="ITEM_CATEGORY" />
-						<var name="ITEM_SUBCATEGORY" />
+						<var name="MENU_ITEM_NAME" type="-1" />
+						<var name="ITEM_CATEGORY" type="-1" />
+						<var name="ITEM_SUBCATEGORY" type="-1" />
 						<var name="COST_OF_GOODS_USD" type="3" />
 						<var name="SALE_PRICE_USD" type="3" />
-						<var name="MENU_ITEM_HEALTH_METRICS_OBJ" />
+						<var name="MENU_ITEM_HEALTH_METRICS_OBJ" type="-1" />
 						<script ><![CDATA[SELECT * FROM TASTY_BYTES_SAMPLE_DATA.RAW_POS.MENU]]></script>
 					</form_script>
-					<cell type="label" name="MENU_ID" pos="0,0,0,0,c,c" />
-					<cell type="label" name="MENU_TYPE_ID" pos="1,0,1,0,c,c" />
-					<cell type="label" name="MENU_TYPE" pos="2,0,2,0,c,c" />
-					<cell type="label" name="TRUCK_BRAND_NAME" pos="3,0,3,0,c,c" />
-					<cell type="label" name="MENU_ITEM_ID" pos="4,0,4,0,c,c" />
-					<cell type="label" name="MENU_ITEM_NAME" pos="5,0,5,0,c,c" />
-					<cell type="label" name="ITEM_CATEGORY" pos="6,0,6,0,c,c" />
-					<cell type="label" name="ITEM_SUBCATEGORY" pos="7,0,7,0,c,c" />
-					<cell type="label" name="COST_OF_GOODS_USD" pos="8,0,8,0,c,c" />
-					<cell type="label" name="SALE_PRICE_USD" pos="9,0,9,0,c,c" />
-					<cell type="label" name="MENU_ITEM_HEALTH_METRICS_OBJ" pos="10,0,10,0,c,c" />
+					<cell type="label" name="MENU_ID" template="Plain" pos="0,0,0,0,c,c" />
+					<cell type="label" name="MENU_TYPE_ID" template="Plain" pos="1,0,1,0,c,c" />
+					<cell type="label" name="MENU_TYPE" template="Plain" pos="2,0,2,0,c,c" />
+					<cell type="label" name="TRUCK_BRAND_NAME" template="Plain" pos="3,0,3,0,c,c" />
+					<cell type="label" name="MENU_ITEM_ID" template="Plain" pos="4,0,4,0,c,c" />
+					<cell type="label" name="MENU_ITEM_NAME" template="Plain" pos="5,0,5,0,c,c" />
+					<cell type="label" name="ITEM_CATEGORY" template="Plain" pos="6,0,6,0,c,c" />
+					<cell type="label" name="ITEM_SUBCATEGORY" template="Plain" pos="7,0,7,0,c,c" />
+					<cell type="label" name="COST_OF_GOODS_USD" template="Plain" pos="8,0,8,0,c,c" />
+					<cell type="label" name="SALE_PRICE_USD" template="Plain" pos="9,0,9,0,c,c" />
+					<cell type="label" name="MENU_ITEM_HEALTH_METRICS_OBJ" template="Plain" pos="10,0,10,0,c,c" />
 					<cell type="label" name="${MENU_ID}" template="Plain" pos="0,1,0,1,l,c" />
 					<cell type="label" name="${MENU_TYPE_ID}" template="Plain" pos="1,1,1,1,l,c" />
 					<cell type="label" name="${MENU_TYPE}" template="Plain" pos="2,1,2,1,l,c" />
@@ -151,14 +160,14 @@ FROM
 					<cell type="label" name="${MENU_ITEM_HEALTH_METRICS_OBJ}" template="Plain" pos="10,1,10,1,l,c" />
 					<cell type="button" name="More" template="Plain" css="btn btn-sm btn-secondary" pos="11,1,11,1,c,c" ref_id="Report-268c" />
 				</tableview>
-				<cell type="href" name="" disabled="${samplePageNumber&lt;1}" pos="0,3,0,3,l,c" glyph="bi-chevron_double_left" ref_id="Report-268c" >
+				<cell type="href" name="" template="Plain" disabled="${samplePageNumber&lt;1}" pos="0,3,0,3,l,c" glyph="bi-chevron_double_left" ref_id="Report-268c" >
 					<var name="samplePageNumber" value="0" />
 				</cell>
-				<cell type="href" name="" disabled="${samplePageNumber&lt;1}" pos="1,3,1,3,l,c" glyph="bi-chevron_left" ref_id="Report-268c" >
+				<cell type="href" name="" template="Plain" disabled="${samplePageNumber&lt;1}" pos="1,3,1,3,l,c" glyph="bi-chevron_left" ref_id="Report-268c" >
 					<var name="samplePageNumber" value="${Math.max(0,samplePageNumber-1)}" />
 				</cell>
-				<cell type="label" name="Page ${samplePageNumber+1}" pos="2,3,2,3,l,c" />
-				<cell type="href" name="" disabled="${!sampleHasNextPage}" pos="3,3,3,3,l,c" glyph="bi-chevron_right" ref_id="Report-268c" >
+				<cell type="label" name="Page ${samplePageNumber+1}" template="Plain" pos="2,3,2,3,l,c" />
+				<cell type="href" name="" template="Plain" disabled="${!sampleHasNextPage}" pos="3,3,3,3,l,c" glyph="bi-chevron_right" ref_id="Report-268c" >
 					<var name="samplePageNumber" value="${( samplePageNumber+1 )}" />
 				</cell>
 			</body>
