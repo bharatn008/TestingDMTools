@@ -4,6 +4,7 @@
 		<table name="DEMO3" generator_rows="100" generator_order="2" >
 			<column name="D1" type="float" jt="6" />
 			<column name="D3" type="float" jt="6" />
+			<column name="D8" type="number" jt="3" />
 		</table>
 		<table name="MENU" generator_rows="10" generator_order="1" row_count="100" spec=" or replace" >
 			<column name="MENU_ID" type="number" length="19" decimal="0" jt="3" />
