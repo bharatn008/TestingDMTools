@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project name="Snowflake" id="Snowflake-25de" database="Snowflake" >
 	<schema name="RAW_POS" catalogname="TASTY_BYTES_SAMPLE_DATA" options="TASTY_BYTES_SAMPLE_DATA.RAW_POS" >
+		<table name="DEMO3" >
+			<column name="D1" type="float" jt="6" />
+		</table>
 		<table name="MENU" row_count="100" spec=" or replace" >
 			<column name="MENU_ID" type="number" length="19" decimal="0" jt="3" />
 			<column name="MENU_TYPE_ID" type="integer" length="38" decimal="0" jt="4" />
@@ -29,6 +32,7 @@ STAGE_FILE_FORMAT=( TYPE=CSV )
 		</table>
 	</schema>
 	<layout name="RAW_POS" id="Layout-1934" show_relation="columns" >
+		<entity schema="TASTY_BYTES_SAMPLE_DATA.RAW_POS" name="DEMO3" color="C1D8EE" x="480" y="208" />
 		<entity schema="TASTY_BYTES_SAMPLE_DATA.RAW_POS" name="MENU" color="3986C1" x="48" y="192" />
 		<entity schema="TASTY_BYTES_SAMPLE_DATA.RAW_POS" name="TEST" color="C1D8EE" x="928" y="144" />
 		<callout x="48" y="48" pointer="Round" >
