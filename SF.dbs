@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="Snowflake" id="Snowflake-259f" database="Snowflake" >
+	<schema name="TPCH_SF1" catalogname="SNOWFLAKE_SAMPLE_DATA" >
+		<table name="CUSTOMER" row_count="150000" >
+			<comment><![CDATA[Customer data as defined by TPC-H]]></comment>
+			<column name="C_CUSTKEY" type="number" length="38" decimal="0" jt="3" mandatory="y" />
+			<column name="C_NAME" type="text" length="25" decimal="0" jt="12" mandatory="y" />
+			<column name="C_ADDRESS" type="text" length="40" decimal="0" jt="12" mandatory="y" />
+			<column name="C_NATIONKEY" type="number" length="38" decimal="0" jt="3" mandatory="y" />
+			<column name="C_PHONE" type="text" length="15" decimal="0" jt="12" mandatory="y" />
+			<column name="C_ACCTBAL" type="number" length="12" decimal="2" jt="3" mandatory="y" />
+			<column name="C_MKTSEGMENT" type="text" length="10" decimal="0" jt="12" />
+			<column name="C_COMMENT" type="text" length="117" decimal="0" jt="12" />
+		</table>
+		<table name="LINEITEM" row_count="6001215" >
+			<comment><![CDATA[Lineitem data as defined by TPC-H]]></comment>
+			<column name="L_ORDERKEY" type="number" length="38" decimal="0" jt="3" mandatory="y" />
+			<column name="L_PARTKEY" type="number" length="38" decimal="0" jt="3" mandatory="y" />
+			<column name="L_SUPPKEY" type="number" length="38" decimal="0" jt="3" mandatory="y" />
+			<column name="L_LINENUMBER" type="number" length="38" decimal="0" jt="3" mandatory="y" />
+			<column name="L_QUANTITY" type="number" length="12" decimal="2" jt="3" mandatory="y" />
+			<column name="L_EXTENDEDPRICE" type="number" length="12" decimal="2" jt="3" mandatory="y" />
+			<column name="L_DISCOUNT" type="number" length="12" decimal="2" jt="3" mandatory="y" />
+			<column name="L_TAX" type="number" length="12" decimal="2" jt="3" mandatory="y" />
+			<column name="L_RETURNFLAG" type="text" length="1" decimal="0" jt="12" mandatory="y" />
+			<column name="L_LINESTATUS" type="text" length="1" decimal="0" jt="12" mandatory="y" />
+			<column name="L_SHIPDATE" type="date" length="0" decimal="0" jt="91" mandatory="y" />
+			<column name="L_COMMITDATE" type="date" length="0" decimal="0" jt="91" mandatory="y" />
+			<column name="L_RECEIPTDATE" type="date" length="0" decimal="0" jt="91" mandatory="y" />
+			<column name="L_SHIPINSTRUCT" type="text" length="25" decimal="0" jt="12" mandatory="y" />
+			<column name="L_SHIPMODE" type="text" length="10" decimal="0" jt="12" mandatory="y" />
+			<column name="L_COMMENT" type="text" length="44" decimal="0" jt="12" mandatory="y" />
+		</table>
+		<table name="NATION" row_count="25" >
+			<comment><![CDATA[Nation data as defined by TPC-H]]></comment>
+			<column name="N_NATIONKEY" type="number" length="38" decimal="0" jt="3" mandatory="y" />
+			<column name="N_NAME" type="text" length="25" decimal="0" jt="12" mandatory="y" />
+			<column name="N_REGIONKEY" type="number" length="38" decimal="0" jt="3" mandatory="y" />
+			<column name="N_COMMENT" type="text" length="152" decimal="0" jt="12" />
+		</table>
+		<table name="ORDERS" row_count="1500000" >
+			<comment><![CDATA[Orders data as defined by TPC-H]]></comment>
+			<column name="O_ORDERKEY" type="number" length="38" decimal="0" jt="3" mandatory="y" />
+			<column name="O_CUSTKEY" type="number" length="38" decimal="0" jt="3" mandatory="y" />
+			<column name="O_ORDERSTATUS" type="text" length="1" decimal="0" jt="12" mandatory="y" />
+			<column name="O_TOTALPRICE" type="number" length="12" decimal="2" jt="3" mandatory="y" />
+			<column name="O_ORDERDATE" type="date" length="0" decimal="0" jt="91" mandatory="y" />
+			<column name="O_ORDERPRIORITY" type="text" length="15" decimal="0" jt="12" mandatory="y" />
+			<column name="O_CLERK" type="text" length="15" decimal="0" jt="12" mandatory="y" />
+			<column name="O_SHIPPRIORITY" type="number" length="38" decimal="0" jt="3" mandatory="y" />
+			<column name="O_COMMENT" type="text" length="79" decimal="0" jt="12" mandatory="y" />
+		</table>
+		<table name="PART" row_count="200000" >
+			<comment><![CDATA[Part data as defined by TPC-H]]></comment>
+			<column name="P_PARTKEY" type="number" length="38" decimal="0" jt="3" mandatory="y" />
+			<column name="P_NAME" type="text" length="55" decimal="0" jt="12" mandatory="y" />
+			<column name="P_MFGR" type="text" length="25" decimal="0" jt="12" mandatory="y" />
+			<column name="P_BRAND" type="text" length="10" decimal="0" jt="12" mandatory="y" />
+			<column name="P_TYPE" type="text" length="25" decimal="0" jt="12" mandatory="y" />
+			<column name="P_SIZE" type="number" length="38" decimal="0" jt="3" mandatory="y" />
+			<column name="P_CONTAINER" type="text" length="10" decimal="0" jt="12" mandatory="y" />
+			<column name="P_RETAILPRICE" type="number" length="12" decimal="2" jt="3" mandatory="y" />
+			<column name="P_COMMENT" type="text" length="23" decimal="0" jt="12" />
+		</table>
+		<table name="PARTSUPP" row_count="800000" >
+			<comment><![CDATA[Partsupp data as defined by TPC-H]]></comment>
+			<column name="PS_PARTKEY" type="number" length="38" decimal="0" jt="3" mandatory="y" />
+			<column name="PS_SUPPKEY" type="number" length="38" decimal="0" jt="3" mandatory="y" />
+			<column name="PS_AVAILQTY" type="number" length="38" decimal="0" jt="3" mandatory="y" />
+			<column name="PS_SUPPLYCOST" type="number" length="12" decimal="2" jt="3" mandatory="y" />
+			<column name="PS_COMMENT" type="text" length="199" decimal="0" jt="12" />
+		</table>
+		<table name="REGION" row_count="5" >
+			<comment><![CDATA[Region data as defined by TPC-H]]></comment>
+			<column name="R_REGIONKEY" type="number" length="38" decimal="0" jt="3" mandatory="y" />
+			<column name="R_NAME" type="text" length="25" decimal="0" jt="12" mandatory="y" />
+			<column name="R_COMMENT" type="text" length="152" decimal="0" jt="12" />
+		</table>
+		<table name="SUPPLIER" row_count="10000" >
+			<comment><![CDATA[Supplier data as defined by TPC-H]]></comment>
+			<column name="S_SUPPKEY" type="number" length="38" decimal="0" jt="3" mandatory="y" />
+			<column name="S_NAME" type="text" length="25" decimal="0" jt="12" mandatory="y" />
+			<column name="S_ADDRESS" type="text" length="40" decimal="0" jt="12" mandatory="y" />
+			<column name="S_NATIONKEY" type="number" length="38" decimal="0" jt="3" mandatory="y" />
+			<column name="S_PHONE" type="text" length="15" decimal="0" jt="12" mandatory="y" />
+			<column name="S_ACCTBAL" type="number" length="12" decimal="2" jt="3" mandatory="y" />
+			<column name="S_COMMENT" type="text" length="101" decimal="0" jt="12" />
+		</table>
+	</schema>
+	<layout name="Main Layout" id="Layout-25ef" show_relation="columns" >
+		<entity schema="SNOWFLAKE_SAMPLE_DATA.TPCH_SF1" name="CUSTOMER" color="BED3F4" x="512" y="336" />
+		<entity schema="SNOWFLAKE_SAMPLE_DATA.TPCH_SF1" name="LINEITEM" color="BED3F4" x="752" y="336" />
+		<entity schema="SNOWFLAKE_SAMPLE_DATA.TPCH_SF1" name="NATION" color="BED3F4" x="512" y="608" />
+		<entity schema="SNOWFLAKE_SAMPLE_DATA.TPCH_SF1" name="ORDERS" color="BED3F4" x="256" y="608" />
+		<entity schema="SNOWFLAKE_SAMPLE_DATA.TPCH_SF1" name="PART" color="BED3F4" x="288" y="320" />
+		<entity schema="SNOWFLAKE_SAMPLE_DATA.TPCH_SF1" name="PARTSUPP" color="BED3F4" x="48" y="384" />
+		<entity schema="SNOWFLAKE_SAMPLE_DATA.TPCH_SF1" name="REGION" color="BED3F4" x="512" y="144" />
+		<entity schema="SNOWFLAKE_SAMPLE_DATA.TPCH_SF1" name="SUPPLIER" color="BED3F4" x="752" y="80" />
+		<callout x="512" y="192" pointer="Round" >
+			<comment><![CDATA[This is a layout. You can create multiple layouts with the same or different tables. 
+Double-click the table headers to edit.]]></comment>
+		</callout>
+		<group name="CUSTOMER" color="ECF0F7" >
+			<entity schema="SNOWFLAKE_SAMPLE_DATA.TPCH_SF1" name="CUSTOMER" />
+			<entity schema="SNOWFLAKE_SAMPLE_DATA.TPCH_SF1" name="LINEITEM" />
+			<entity schema="SNOWFLAKE_SAMPLE_DATA.TPCH_SF1" name="NATION" />
+			<entity schema="SNOWFLAKE_SAMPLE_DATA.TPCH_SF1" name="ORDERS" />
+			<entity schema="SNOWFLAKE_SAMPLE_DATA.TPCH_SF1" name="PART" />
+			<entity schema="SNOWFLAKE_SAMPLE_DATA.TPCH_SF1" name="REGION" />
+			<entity schema="SNOWFLAKE_SAMPLE_DATA.TPCH_SF1" name="SUPPLIER" />
+			<entity schema="SNOWFLAKE_SAMPLE_DATA.TPCH_SF1" name="PARTSUPP" />
+		</group>
+	</layout>
+	<layout name="~Layout with Sample Tools" id="Layout-2625" show_column_type="y" show_relation="columns" >
+		<entity schema="SNOWFLAKE_SAMPLE_DATA.TPCH_SF1" name="CUSTOMER" color="BED3F4" x="656" y="304" />
+		<entity schema="SNOWFLAKE_SAMPLE_DATA.TPCH_SF1" name="LINEITEM" color="BED3F4" x="960" y="304" />
+		<entity schema="SNOWFLAKE_SAMPLE_DATA.TPCH_SF1" name="NATION" color="BED3F4" x="656" y="576" />
+		<entity schema="SNOWFLAKE_SAMPLE_DATA.TPCH_SF1" name="ORDERS" color="BED3F4" x="352" y="576" />
+		<entity schema="SNOWFLAKE_SAMPLE_DATA.TPCH_SF1" name="PART" color="BED3F4" x="352" y="288" />
+		<entity schema="SNOWFLAKE_SAMPLE_DATA.TPCH_SF1" name="PARTSUPP" color="BED3F4" x="48" y="576" />
+		<entity schema="SNOWFLAKE_SAMPLE_DATA.TPCH_SF1" name="REGION" color="BED3F4" x="656" y="112" />
+		<entity schema="SNOWFLAKE_SAMPLE_DATA.TPCH_SF1" name="SUPPLIER" color="BED3F4" x="960" y="48" />
+		<script name="SQL Editor" id="Editor-244b" language="SQL" >
+			<string><![CDATA[SELECT
+	C_CUSTKEY, C_NAME, C_ADDRESS, C_NATIONKEY, C_PHONE, C_ACCTBAL, C_MKTSEGMENT, C_COMMENT
+FROM
+	SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.CUSTOMER R;]]></string>
+		</script>
+		<browser id="Browse-25d6" name="Relational Data Explorer" confirm_updates="y" >
+			<browse_table schema="SNOWFLAKE_SAMPLE_DATA.TPCH_SF1" entity="CUSTOMER" x="20" y="20" width="270" height="-60" />
+		</browser>
+		<query id="Query-1a06" name="Query Builder" >
+			<query_table schema="SNOWFLAKE_SAMPLE_DATA.TPCH_SF1" name="CUSTOMER" alias="c" x="48" y="48" >
+				<column name="C_CUSTKEY" />
+				<column name="C_NAME" />
+				<column name="C_ADDRESS" />
+				<column name="C_NATIONKEY" />
+				<column name="C_PHONE" />
+				<column name="C_ACCTBAL" />
+				<column name="C_MKTSEGMENT" />
+				<column name="C_COMMENT" />
+			</query_table>
+		</query>
+		<form name="Report" id="Report-1bb4" template="Page" css="container-fluid" view="frame" >
+			<var name="samplePageNumber" type="4" value="0" mandatory="n" />
+			<var name="sampleRecordsPerPage" type="4" value="100" mandatory="n" />
+			<body name="Body" template="Grid" max_records="100" pos="0,0,0,0,f,f" layout="{{-2,-2,-2,-2,-1},{-2,-2,-2,-2}}" generate_path="y" scroll="n" html="n" header_rows="0" footer_rows="0" >
+				<cell type="label" name="Customer Data" template="H3" pos="0,0,1,0,l,c" />
+				<cell type="chart" name="Pie" template="Pie" pos="0,1,4,1,l,c" max_records="20" generate_path="y" >
+					<form_script type="DataSource" language="SQL" >
+						<var name="C_CUSTKEY" type="3" />
+						<var name="C_NAME" />
+						<var name="C_ADDRESS" />
+						<var name="C_NATIONKEY" type="3" />
+						<var name="C_PHONE" />
+						<var name="C_ACCTBAL" type="3" />
+						<var name="C_MKTSEGMENT" />
+						<var name="C_COMMENT" />
+						<script ><![CDATA[SELECT * FROM SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.CUSTOMER]]></script>
+					</form_script>
+					<param name="item" value="C_PHONE" />
+					<param name="width" value="100%" />
+					<param name="title" value="Sample Chart" />
+					<param name="value" value="C_ACCTBAL" />
+					<param name="height" value="400px" />
+				</cell>
+				<tableview name="sample" template="Table" max_records="100" css="sortable table table-striped table-sm table-hover" pos="0,2,4,2,f,f" layout="{{-2,-2,-2,-2,-2,-2,-2,-2,-2},{-2,-2}}" generate_path="y" scroll="n" html="n" header_rows="1" footer_rows="0" >
+					<form_script type="DataSource" language="SQL" >
+						<var name="C_CUSTKEY" type="3" />
+						<var name="C_NAME" />
+						<var name="C_ADDRESS" />
+						<var name="C_NATIONKEY" type="3" />
+						<var name="C_PHONE" />
+						<var name="C_ACCTBAL" type="3" />
+						<var name="C_MKTSEGMENT" />
+						<var name="C_COMMENT" />
+						<script ><![CDATA[SELECT * FROM SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.CUSTOMER]]></script>
+					</form_script>
+					<cell type="label" name="C_CUSTKEY" pos="0,0,0,0,c,c" />
+					<cell type="label" name="C_NAME" pos="1,0,1,0,c,c" />
+					<cell type="label" name="C_ADDRESS" pos="2,0,2,0,c,c" />
+					<cell type="label" name="C_NATIONKEY" pos="3,0,3,0,c,c" />
+					<cell type="label" name="C_PHONE" pos="4,0,4,0,c,c" />
+					<cell type="label" name="C_ACCTBAL" pos="5,0,5,0,c,c" />
+					<cell type="label" name="C_MKTSEGMENT" pos="6,0,6,0,c,c" />
+					<cell type="label" name="C_COMMENT" pos="7,0,7,0,c,c" />
+					<cell type="label" name="${C_CUSTKEY}" template="Plain" pos="0,1,0,1,l,c" />
+					<cell type="label" name="${C_NAME}" template="Plain" pos="1,1,1,1,l,c" />
+					<cell type="label" name="${C_ADDRESS}" template="Plain" pos="2,1,2,1,l,c" />
+					<cell type="label" name="${C_NATIONKEY}" template="Plain" pos="3,1,3,1,l,c" />
+					<cell type="label" name="${C_PHONE}" template="Plain" pos="4,1,4,1,l,c" />
+					<cell type="label" name="${C_ACCTBAL}" template="Plain" pos="5,1,5,1,l,c" />
+					<cell type="label" name="${C_MKTSEGMENT}" template="Plain" pos="6,1,6,1,l,c" />
+					<cell type="label" name="${C_COMMENT}" template="Plain" pos="7,1,7,1,l,c" />
+					<cell type="button" name="More" template="Plain" css="btn btn-sm btn-secondary" pos="8,1,8,1,c,c" ref_id="Report-1bb4" />
+				</tableview>
+				<cell type="href" name="" disabled="${samplePageNumber&lt;1}" pos="0,3,0,3,l,c" glyph="bi-chevron_double_left" ref_id="Report-1bb4" >
+					<var name="samplePageNumber" value="0" />
+				</cell>
+				<cell type="href" name="" disabled="${samplePageNumber&lt;1}" pos="1,3,1,3,l,c" glyph="bi-chevron_left" ref_id="Report-1bb4" >
+					<var name="samplePageNumber" value="${Math.max(0,samplePageNumber-1)}" />
+				</cell>
+				<cell type="label" name="Page ${samplePageNumber+1}" pos="2,3,2,3,l,c" />
+				<cell type="href" name="" disabled="${!sampleHasNextPage}" pos="3,3,3,3,l,c" glyph="bi-chevron_right" ref_id="Report-1bb4" >
+					<var name="samplePageNumber" value="${( samplePageNumber+1 )}" />
+				</cell>
+			</body>
+		</form>
+	</layout>
+</project>
