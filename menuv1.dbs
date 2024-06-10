@@ -5,10 +5,6 @@
 			<column name="D1" type="float" jt="6" />
 			<column name="D3" type="float" jt="6" />
 			<column name="D8" type="number" jt="3" />
-			<column name="DF" type="number" jt="3" />
-			<index name="UNQ_DEMO3_D8" unique="UNIQUE_KEY" >
-				<column name="D8" />
-			</index>
 		</table>
 		<table name="MENU" generator_rows="10" generator_order="1" row_count="100" spec=" or replace" >
 			<column name="MENU_ID" type="number" length="19" decimal="0" jt="3" />
@@ -22,10 +18,6 @@
 			<column name="COST_OF_GOODS_USD" type="number" length="38" decimal="4" jt="3" />
 			<column name="SALE_PRICE_USD" type="number" length="38" decimal="4" jt="3" />
 			<column name="MENU_ITEM_HEALTH_METRICS_OBJ" type="variant" jt="12" />
-			<column name="TES_COL" type="float" jt="6" />
-			<fk name="FK_MENU_DEMO3" to_schema="TASTY_BYTES_SAMPLE_DATA.RAW_POS" to_table="DEMO3" >
-				<fk_column name="MENU_ITEM_ID" pk="D8" />
-			</fk>
 		</table>
 		<table name="TABLE1" generator_rows="150" generator_order="3" >
 			<column name="A" type="float" jt="6" />
@@ -100,6 +92,11 @@ COMMENT ON COLUMN TASTY_BYTES_SAMPLE_DATA.RAW_POS.TEST.COL2 IS 'demo col';
 	</layout>
 	<layout name="~Layout with Sample Tools" id="Layout-9a3" show_column_type="y" show_relation="columns" >
 		<entity schema="TASTY_BYTES_SAMPLE_DATA.RAW_POS" name="MENU" color="3986C1" x="48" y="48" />
+		<script name="MENU_ITEM_HEALTH_METRICS_OBJ" id="Editor-726" language="SQL" >
+			<string><![CDATA[INSERT INTO TASTY_BYTES_SAMPLE_DATA.RAW_POS.MENU
+	( MENU_ID, MENU_TYPE_ID, MENU_TYPE, TRUCK_BRAND_NAME, MENU_ITEM_ID, MENU_ITEM_NAME, ITEM_CATEGORY, ITEM_SUBCATEGORY, COST_OF_GOODS_USD, SALE_PRICE_USD, MENU_ITEM_HEALTH_METRICS_OBJ
+, TES_COL, SDFDF) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? );]]></string>
+		</script>
 		<script name="SQL Editor" id="Editor-173c" language="SQL" >
 			<string><![CDATA[SELECT
 	MENU_ID, MENU_TYPE_ID, MENU_TYPE, TRUCK_BRAND_NAME, MENU_ITEM_ID, MENU_ITEM_NAME, ITEM_CATEGORY, ITEM_SUBCATEGORY, 
@@ -125,6 +122,9 @@ FROM
 				<column name="MENU_ITEM_HEALTH_METRICS_OBJ" />
 			</query_table>
 		</query>
+		<form name="Application/Report" id="Report-25f8" template="Page" css="container-fluid" view="frame" >
+			<body name="Body" template="Grid" max_records="100" pos="0,0,0,0,f,f" layout="{{-2},{-2}}" generate_path="y" scroll="n" html="n" header_rows="0" footer_rows="0" />
+		</form>
 		<form name="Report" id="Report-268c" template="Page" css="container-fluid" view="frame" >
 			<var name="samplePageNumber" type="4" value="0" mandatory="n" />
 			<var name="sampleRecordsPerPage" type="4" value="100" mandatory="n" />
