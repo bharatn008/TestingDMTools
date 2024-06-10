@@ -13,7 +13,7 @@
 			<column name="COST_OF_GOODS_USD" type="number" length="38" decimal="4" jt="3" />
 			<column name="SALE_PRICE_USD" type="number" length="38" decimal="4" jt="3" />
 			<column name="MENU_ITEM_HEALTH_METRICS_OBJ" type="variant" jt="12" />
-			<column name="TES_COL" type="float" jt="6" />
+			<column name="TES_COLLLL" prior="TES_COL" type="float" jt="6" />
 			<column name="DEMOOOOO" type="float" jt="6" />
 		</table>
 		<table name="TEST" >
