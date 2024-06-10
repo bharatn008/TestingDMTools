@@ -15,9 +15,22 @@
 			<column name="MENU_ITEM_HEALTH_METRICS_OBJ" type="variant" jt="12" />
 			<column name="TES_COL" type="float" jt="6" />
 		</table>
+		<table name="TEST" >
+			<comment><![CDATA[this is test table for git integration]]></comment>
+			<column name="COL1" type="float" jt="6" >
+				<comment><![CDATA[demo col]]></comment>
+			</column>
+			<column name="COL2" type="float" jt="6" >
+				<comment><![CDATA[demo col]]></comment>
+			</column>
+			<options><![CDATA[
+STAGE_FILE_FORMAT=( TYPE=CSV )
+]]></options>
+		</table>
 	</schema>
 	<layout name="RAW_POS" id="Layout-1934" show_relation="columns" >
 		<entity schema="TASTY_BYTES_SAMPLE_DATA.RAW_POS" name="MENU" color="3986C1" x="48" y="192" />
+		<entity schema="TASTY_BYTES_SAMPLE_DATA.RAW_POS" name="TEST" color="C1D8EE" x="928" y="144" />
 		<callout x="48" y="48" pointer="Round" >
 			<comment><![CDATA[This is a layout. You can create multiple layouts with the same or different tables. 
 Double-click the table headers to edit.]]></comment>
