@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="Snowflake" id="Snowflake-25de" database="Snowflake" >
+	<schema name="RAW_POS" catalogname="TASTY_BYTES_SAMPLE_DATA" options="TASTY_BYTES_SAMPLE_DATA.RAW_POS" >
+		<table name="DEMO3" generator_rows="100" generator_order="2" >
+			<column name="D1" type="float" jt="6" />
+			<column name="D3" type="float" jt="6" />
+			<column name="D8" type="number" jt="3" />
+		</table>
+		<table name="MENU" generator_rows="10" generator_order="1" row_count="100" spec=" or replace" >
+			<column name="MENU_ID" type="number" length="19" decimal="0" jt="3" />
+			<column name="MENU_TYPE_ID" type="integer" length="38" decimal="0" jt="4" />
+			<column name="MENU_TYPE" type="varchar" length="16777216" jt="12" />
+			<column name="TRUCK_BRAND_NAME" type="varchar" length="16777216" jt="12" />
+			<column name="MENU_ITEM_ID" type="integer" length="38" decimal="0" jt="4" />
+			<column name="MENU_ITEM_NAME" type="varchar" length="16777216" jt="12" />
+			<column name="ITEM_CATEGORY" type="varchar" length="16777216" jt="12" />
+			<column name="ITEM_SUBCATEGORY" type="varchar" length="16777216" jt="12" />
+			<column name="COST_OF_GOODS_USD" type="number" length="38" decimal="4" jt="3" />
+			<column name="SALE_PRICE_USD" type="number" length="38" decimal="4" jt="3" />
+			<column name="MENU_ITEM_HEALTH_METRICS_OBJ" type="variant" jt="12" />
+			<column name="TES_COL" type="double" jt="8" />
+			<column name="SDFDF" type="number" jt="3" />
+		</table>
+		<table name="TABLE1" generator_rows="150" generator_order="3" >
+			<column name="A" type="float" jt="6" />
+			<index name="UNQ_TABLE1_A" unique="UNIQUE_KEY" >
+				<column name="A" />
+			</index>
+			<fk name="FK_TABLE1_TEST" to_schema="TASTY_BYTES_SAMPLE_DATA.RAW_POS" to_table="TEST" >
+				<fk_column name="A" pk="NEWCOL" />
+			</fk>
+		</table>
+		<table name="TABLE3" generator_rows="150" generator_order="4" >
+			<column name="D4" type="float" jt="6" />
+			<index name="UNQ_TABLE3_D4" unique="UNIQUE_KEY" >
+				<column name="D4" />
+			</index>
+			<fk name="FK_TABLE3_TEST" to_schema="TASTY_BYTES_SAMPLE_DATA.RAW_POS" to_table="TEST" >
+				<fk_column name="D4" pk="COL1" />
+			</fk>
+			<fk name="TEST FK" to_schema="TASTY_BYTES_SAMPLE_DATA.RAW_POS" to_table="TEST" >
+				<fk_column name="D4" pk="COL2" />
+			</fk>
+		</table>
+		<table name="TEST" generator_rows="10" generator_order="0" >
+			<comment><![CDATA[this is test table for git integration]]></comment>
+			<column name="COL1" type="float" jt="6" >
+				<comment><![CDATA[demo col]]></comment>
+			</column>
+			<column name="COL2" type="float" jt="6" >
+				<comment><![CDATA[demo col]]></comment>
+			</column>
+			<column name="NEWCOL" type="float" jt="6" />
+			<index name="UNQ_TEST_COL1" unique="UNIQUE_KEY" >
+				<column name="COL1" />
+			</index>
+			<index name="UNQ_TEST_NEWCOL" unique="UNIQUE_KEY" >
+				<column name="NEWCOL" />
+			</index>
+			<index name="UNQ_TEST_COL2" unique="UNIQUE_KEY" >
+				<column name="COL2" />
+			</index>
+			<options><![CDATA[
+STAGE_FILE_FORMAT=( TYPE=CSV )]]></options>
+		</table>
+	</schema>
+	<layout name="RAW_POS" id="Layout-1934" show_relation="columns" >
+		<entity schema="TASTY_BYTES_SAMPLE_DATA.RAW_POS" name="DEMO3" color="C1D8EE" x="480" y="240" />
+		<entity schema="TASTY_BYTES_SAMPLE_DATA.RAW_POS" name="MENU" color="3986C1" x="48" y="224" />
+		<entity schema="TASTY_BYTES_SAMPLE_DATA.RAW_POS" name="TABLE1" color="C1D8EE" x="800" y="240" />
+		<entity schema="TASTY_BYTES_SAMPLE_DATA.RAW_POS" name="TABLE3" color="C1D8EE" x="480" y="240" />
+		<entity schema="TASTY_BYTES_SAMPLE_DATA.RAW_POS" name="TEST" color="C1D8EE" x="928" y="176" />
+		<callout x="48" y="80" pointer="Round" >
+			<comment><![CDATA[This is a layout. You can create multiple layouts with the same or different tables. 
+Double-click the table headers to edit.]]></comment>
+		</callout>
+		<group name="RAW GROUP" color="C4E0F9" >
+			<entity schema="TASTY_BYTES_SAMPLE_DATA.RAW_POS" name="TABLE1" />
+			<entity schema="TASTY_BYTES_SAMPLE_DATA.RAW_POS" name="TEST" />
+			<entity schema="TASTY_BYTES_SAMPLE_DATA.RAW_POS" name="DEMO3" />
+			<entity schema="TASTY_BYTES_SAMPLE_DATA.RAW_POS" name="TABLE3" />
+			<entity schema="TASTY_BYTES_SAMPLE_DATA.RAW_POS" name="MENU" />
+		</group>
+		<script name="SQL_Editor" id="Editor-217d" language="SQL" >
+			<string><![CDATA[CREATE TABLE TASTY_BYTES_SAMPLE_DATA.RAW_POS.TEST ( COL1 float , COL2 float ) STAGE_FILE_FORMAT=( TYPE=CSV ) ;
+
+COMMENT ON TABLE TASTY_BYTES_SAMPLE_DATA.RAW_POS.TEST IS 'this is test table for git integration';
+
+COMMENT ON COLUMN TASTY_BYTES_SAMPLE_DATA.RAW_POS.TEST.COL1 IS 'demo col';
+
+COMMENT ON COLUMN TASTY_BYTES_SAMPLE_DATA.RAW_POS.TEST.COL2 IS 'demo col';
+]]></string>
+		</script>
+	</layout>
+	<layout name="~Layout with Sample Tools" id="Layout-9a3" show_column_type="y" show_relation="columns" >
+		<entity schema="TASTY_BYTES_SAMPLE_DATA.RAW_POS" name="MENU" color="3986C1" x="48" y="48" />
+		<script name="MENU_ITEM_HEALTH_METRICS_OBJ" id="Editor-726" language="SQL" >
+			<string><![CDATA[INSERT INTO TASTY_BYTES_SAMPLE_DATA.RAW_POS.MENU
+	( MENU_ID, MENU_TYPE_ID, MENU_TYPE, TRUCK_BRAND_NAME, MENU_ITEM_ID, MENU_ITEM_NAME, ITEM_CATEGORY, ITEM_SUBCATEGORY, COST_OF_GOODS_USD, SALE_PRICE_USD, MENU_ITEM_HEALTH_METRICS_OBJ
+, TES_COL, SDFDF) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? );]]></string>
+		</script>
+		<script name="SQL Editor" id="Editor-173c" language="SQL" >
+			<string><![CDATA[SELECT
+	MENU_ID, MENU_TYPE_ID, MENU_TYPE, TRUCK_BRAND_NAME, MENU_ITEM_ID, MENU_ITEM_NAME, ITEM_CATEGORY, ITEM_SUBCATEGORY, 
+	COST_OF_GOODS_USD, SALE_PRICE_USD, MENU_ITEM_HEALTH_METRICS_OBJ
+FROM
+	TASTY_BYTES_SAMPLE_DATA.RAW_POS.MENU U;]]></string>
+		</script>
+		<browser id="Browse-3e" name="Relational Data Explorer" confirm_updates="y" >
+			<browse_table schema="TASTY_BYTES_SAMPLE_DATA.RAW_POS" entity="MENU" x="20" y="20" width="270" height="-60" />
+		</browser>
+		<query id="Query-1ec7" name="Query Builder" >
+			<query_table schema="TASTY_BYTES_SAMPLE_DATA.RAW_POS" name="MENU" alias="m" x="48" y="48" >
+				<column name="MENU_ID" />
+				<column name="MENU_TYPE_ID" />
+				<column name="MENU_TYPE" />
+				<column name="TRUCK_BRAND_NAME" />
+				<column name="MENU_ITEM_ID" />
+				<column name="MENU_ITEM_NAME" />
+				<column name="ITEM_CATEGORY" />
+				<column name="ITEM_SUBCATEGORY" />
+				<column name="COST_OF_GOODS_USD" />
+				<column name="SALE_PRICE_USD" />
+				<column name="MENU_ITEM_HEALTH_METRICS_OBJ" />
+			</query_table>
+		</query>
+		<form name="Application/Report" id="Report-25f8" template="Page" css="container-fluid" view="frame" >
+			<body name="Body" template="Grid" max_records="100" pos="0,0,0,0,f,f" layout="{{-2},{-2}}" generate_path="y" scroll="n" html="n" header_rows="0" footer_rows="0" />
+		</form>
+		<form name="Report" id="Report-268c" template="Page" css="container-fluid" view="frame" >
+			<var name="samplePageNumber" type="4" value="0" mandatory="n" />
+			<var name="sampleRecordsPerPage" type="4" value="100" mandatory="n" />
+			<body name="Body" template="Grid" max_records="100" pos="0,0,0,0,f,f" layout="{{-2,-2,-2,-2,-1},{-2,-2,-2,-2}}" generate_path="y" scroll="n" html="n" header_rows="0" footer_rows="0" >
+				<cell type="label" name="Menu Data" template="H3" pos="0,0,1,0,l,c" />
+				<cell type="chart" name="Pie" template="Pie" pos="0,1,4,1,l,c" max_records="20" generate_path="y" >
+					<form_script type="DataSource" language="SQL" >
+						<var name="MENU_ID" type="3" />
+						<var name="MENU_TYPE_ID" type="4" />
+						<var name="MENU_TYPE" type="-1" />
+						<var name="TRUCK_BRAND_NAME" type="-1" />
+						<var name="MENU_ITEM_ID" type="4" />
+						<var name="MENU_ITEM_NAME" type="-1" />
+						<var name="ITEM_CATEGORY" type="-1" />
+						<var name="ITEM_SUBCATEGORY" type="-1" />
+						<var name="COST_OF_GOODS_USD" type="3" />
+						<var name="SALE_PRICE_USD" type="3" />
+						<var name="MENU_ITEM_HEALTH_METRICS_OBJ" type="-1" />
+						<script ><![CDATA[SELECT * FROM TASTY_BYTES_SAMPLE_DATA.RAW_POS.MENU]]></script>
+					</form_script>
+					<param name="item" value="MENU_TYPE" />
+					<param name="width" value="100%" />
+					<param name="title" value="Sample Chart" />
+					<param name="value" value="MENU_ID" />
+					<param name="height" value="400px" />
+				</cell>
+				<tableview name="sample" template="Table" max_records="100" css="sortable table table-striped table-sm table-hover" pos="0,2,4,2,f,f" layout="{{-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2},{-2,-2}}" generate_path="y" scroll="n" html="n" header_rows="1" footer_rows="0" >
+					<form_script type="DataSource" language="SQL" >
+						<var name="MENU_ID" type="3" />
+						<var name="MENU_TYPE_ID" type="4" />
+						<var name="MENU_TYPE" type="-1" />
+						<var name="TRUCK_BRAND_NAME" type="-1" />
+						<var name="MENU_ITEM_ID" type="4" />
+						<var name="MENU_ITEM_NAME" type="-1" />
+						<var name="ITEM_CATEGORY" type="-1" />
+						<var name="ITEM_SUBCATEGORY" type="-1" />
+						<var name="COST_OF_GOODS_USD" type="3" />
+						<var name="SALE_PRICE_USD" type="3" />
+						<var name="MENU_ITEM_HEALTH_METRICS_OBJ" type="-1" />
+						<script ><![CDATA[SELECT * FROM TASTY_BYTES_SAMPLE_DATA.RAW_POS.MENU]]></script>
+					</form_script>
+					<cell type="label" name="MENU_ID" template="Plain" pos="0,0,0,0,c,c" />
+					<cell type="label" name="MENU_TYPE_ID" template="Plain" pos="1,0,1,0,c,c" />
+					<cell type="label" name="MENU_TYPE" template="Plain" pos="2,0,2,0,c,c" />
+					<cell type="label" name="TRUCK_BRAND_NAME" template="Plain" pos="3,0,3,0,c,c" />
+					<cell type="label" name="MENU_ITEM_ID" template="Plain" pos="4,0,4,0,c,c" />
+					<cell type="label" name="MENU_ITEM_NAME" template="Plain" pos="5,0,5,0,c,c" />
+					<cell type="label" name="ITEM_CATEGORY" template="Plain" pos="6,0,6,0,c,c" />
+					<cell type="label" name="ITEM_SUBCATEGORY" template="Plain" pos="7,0,7,0,c,c" />
+					<cell type="label" name="COST_OF_GOODS_USD" template="Plain" pos="8,0,8,0,c,c" />
+					<cell type="label" name="SALE_PRICE_USD" template="Plain" pos="9,0,9,0,c,c" />
+					<cell type="label" name="MENU_ITEM_HEALTH_METRICS_OBJ" template="Plain" pos="10,0,10,0,c,c" />
+					<cell type="label" name="${MENU_ID}" template="Plain" pos="0,1,0,1,l,c" />
+					<cell type="label" name="${MENU_TYPE_ID}" template="Plain" pos="1,1,1,1,l,c" />
+					<cell type="label" name="${MENU_TYPE}" template="Plain" pos="2,1,2,1,l,c" />
+					<cell type="label" name="${TRUCK_BRAND_NAME}" template="Plain" pos="3,1,3,1,l,c" />
+					<cell type="label" name="${MENU_ITEM_ID}" template="Plain" pos="4,1,4,1,l,c" />
+					<cell type="label" name="${MENU_ITEM_NAME}" template="Plain" pos="5,1,5,1,l,c" />
+					<cell type="label" name="${ITEM_CATEGORY}" template="Plain" pos="6,1,6,1,l,c" />
+					<cell type="label" name="${ITEM_SUBCATEGORY}" template="Plain" pos="7,1,7,1,l,c" />
+					<cell type="label" name="${COST_OF_GOODS_USD}" template="Plain" pos="8,1,8,1,l,c" />
+					<cell type="label" name="${SALE_PRICE_USD}" template="Plain" pos="9,1,9,1,l,c" />
+					<cell type="label" name="${MENU_ITEM_HEALTH_METRICS_OBJ}" template="Plain" pos="10,1,10,1,l,c" />
+					<cell type="button" name="More" template="Plain" css="btn btn-sm btn-secondary" pos="11,1,11,1,c,c" ref_id="Report-268c" />
+				</tableview>
+				<cell type="href" name="" template="Plain" disabled="${samplePageNumber&lt;1}" pos="0,3,0,3,l,c" glyph="bi-chevron_double_left" ref_id="Report-268c" >
+					<var name="samplePageNumber" value="0" />
+				</cell>
+				<cell type="href" name="" template="Plain" disabled="${samplePageNumber&lt;1}" pos="1,3,1,3,l,c" glyph="bi-chevron_left" ref_id="Report-268c" >
+					<var name="samplePageNumber" value="${Math.max(0,samplePageNumber-1)}" />
+				</cell>
+				<cell type="label" name="Page ${samplePageNumber+1}" template="Plain" pos="2,3,2,3,l,c" />
+				<cell type="href" name="" template="Plain" disabled="${!sampleHasNextPage}" pos="3,3,3,3,l,c" glyph="bi-chevron_right" ref_id="Report-268c" >
+					<var name="samplePageNumber" value="${( samplePageNumber+1 )}" />
+				</cell>
+			</body>
+		</form>
+	</layout>
+</project>
